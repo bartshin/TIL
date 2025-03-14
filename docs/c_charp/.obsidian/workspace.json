@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b7d9994fb4987188",
+        "id": "fcddce0a14b7875e",
         "type": "tabs",
         "children": [
           {
-            "id": "a505d9285ba05d6c",
+            "id": "1dd68bee43452c46",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -94,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "2025.03.14_함수.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for 2025.03.14_함수"
             }
           },
           {
@@ -165,10 +166,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a505d9285ba05d6c",
+  "active": "1dd68bee43452c46",
   "lastOpenFiles": [
     "2025.03.13_반복문.md",
     "2025.03.12_연산자.md",
-    "2025.03.11_변수,자료형.md"
+    "2025.03.11_변수,자료형.md",
+    "2025.03.14_함수.md"
   ]
 }
