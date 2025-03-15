@@ -19,8 +19,8 @@
 
 #### 기본적인 레퍼런스
 1. C sharp
-- [MS learn](https://learn.microsoft.com/ko-kr/dotnet/csharp/)
-- [Pro C# 10 with .Net 6 | Troelsen, Andrew](https://product.kyobobook.co.kr/detail/S000060827163)
+ - [MS learn](https://learn.microsoft.com/ko-kr/dotnet/csharp/)
+ - [Pro C# 10 with .Net 6 | Troelsen, Andrew](https://product.kyobobook.co.kr/detail/S000060827163)
 
 
 시작일: 2025-03-11
