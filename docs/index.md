@@ -25,5 +25,5 @@
 
 시작일: 2025-03-11
 
->email: [bartshin@icloud.com](mailto:bartshin@icloud.com)
+>email: [bartshin@icloud.com](mailto:bartshin@icloud.com)   
 >templete [Publish your Obsidian Notes](https://github.com/jobindjohn/obsidian-publish-mkdocs?tab=readme-ov-file)
