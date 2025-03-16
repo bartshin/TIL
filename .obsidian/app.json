@@ -1,0 +1,11 @@
+{
+  "userIgnoreFilters": [
+    "docs/javascripts/"
+  ],
+  "attachmentFolderPath": "docs/c_sharp",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "docs/c_sharp",
+  "useMarkdownLinks": true,
+  "autoConvertHtml": true,
+  "livePreview": true
+}
