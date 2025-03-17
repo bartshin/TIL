@@ -1,13 +1,18 @@
-site_name: bartshin's TIL
+site_name: bartshin's Today I learned
+site_author: Hee Goan Shin
+repo_name: bartshin/TIL
+repo_url: https://github.com/bartshin/TIL
+
 
 theme:
     name: 'material'
-    palette:
     logo: assets/images/bart.JPEG
     favicon: assets/images/bart.png
-    extra:
-      homepage: https://github.com/bartshin
+    font:
+      text: Roboto
+      code: Roboto Mono
 
+    palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
