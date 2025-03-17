@@ -5,8 +5,8 @@ repo_url: https://github.com/bartshin/TIL
 
 theme:
     name: 'material'
-    logo: assets/images/bart.JPEG
-    favicon: assets/images/bart.png
+    logo: assets/images/bart.png
+    favicon: assets/images/bart.JPEG
     font:
       text: Roboto
       code: Roboto Mono
