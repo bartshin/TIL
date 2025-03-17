@@ -3,7 +3,6 @@ site_author: Hee Goan Shin
 repo_name: bartshin/TIL
 repo_url: https://github.com/bartshin/TIL
 
-
 theme:
     name: 'material'
     logo: assets/images/bart.JPEG
