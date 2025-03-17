@@ -21,6 +21,10 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
+      logo: assets/images/bart.JPEG
+      favicon: assets/images/bart.png
+      extra:
+        homepage: https://github.com/bartshin
 
 # Extensions
 markdown_extensions:
