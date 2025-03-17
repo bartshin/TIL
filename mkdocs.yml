@@ -3,6 +3,10 @@ site_name: bartshin's TIL
 theme:
     name: 'material'
     palette:
+    logo: assets/images/bart.JPEG
+    favicon: assets/images/bart.png
+    extra:
+      homepage: https://github.com/bartshin
 
     # Light mode
     - media: "(prefers-color-scheme: light)"
@@ -21,10 +25,6 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-      logo: assets/images/bart.JPEG
-      favicon: assets/images/bart.png
-      extra:
-        homepage: https://github.com/bartshin
 
 # Extensions
 markdown_extensions:
