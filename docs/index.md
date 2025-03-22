@@ -18,9 +18,9 @@
 - 예시 코드는 레퍼런스에 있는 코드이거나 내용을 바탕으로 직접 작성해 실행해본 코드입니다
 
 #### 기본적인 레퍼런스
-1. C sharp
- - [MS learn](https://learn.microsoft.com/ko-kr/dotnet/csharp/)
- - [Pro C# 10 with .Net 6 | Troelsen, Andrew](https://product.kyobobook.co.kr/detail/S000060827163)
+1. C sharp   
+ - [MS learn](https://learn.microsoft.com/ko-kr/dotnet/csharp/)   
+ - [Pro C# 10 with .Net 6 | Troelsen, Andrew](https://product.kyobobook.co.kr/detail/S000060827163)   
 
 
 시작일: 2025-03-11
