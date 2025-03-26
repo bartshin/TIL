@@ -61,6 +61,7 @@ plugins:
   - roamlinks
   - git-revision-date-localized:
       enable_creation_date: true
+      type: date
   #- blog
   - rss:
       match_path: blog/posts/.* 
