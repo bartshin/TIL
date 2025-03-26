@@ -59,6 +59,8 @@ markdown_extensions:
 plugins:
   - search
   - roamlinks
+  - git-revision-date-localized:
+      enable_creation_date: true
   #- blog
   - rss:
       match_path: blog/posts/.* 
