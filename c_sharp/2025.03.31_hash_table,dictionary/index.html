@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../2025.03.21_test%EC%BD%94%EB%93%9C/">
+        <link rel="prev" href="../2025.03.28_generic_collection/">
       
       
-        <link rel="next" href="../2025.03.24_class%2Crecord/">
+        <link rel="next" href="../../dev/2025.03.20_Git/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
@@ -25,7 +25,7 @@
     
     
       
-        <title>2025.03.22 tuple,class - bartshin's Today I learned</title>
+        <title>2025.03.31 hash table,dictionary - bartshin's Today I learned</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tuple" class="md-skip">
+        <a href="#hash-table" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2025.03.22 tuple,class
+              2025.03.31 hash table,dictionary
             
           </span>
         </div>
@@ -520,30 +520,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    2025.03.22 tuple,class
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2025.03.22_tuple%2Cclass/" class="md-nav__link">
         
   
   
@@ -554,66 +534,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#tuple" class="md-nav__link">
-    <span class="md-ellipsis">
-      tuple
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class" class="md-nav__link">
-    <span class="md-ellipsis">
-      class
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="class">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#constructor" class="md-nav__link">
-    <span class="md-ellipsis">
-      constructor
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#oop" class="md-nav__link">
-    <span class="md-ellipsis">
-      OOP
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -738,10 +658,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../2025.03.31_hash_table%2Cdictionary/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2025.03.31 hash table,dictionary
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -752,6 +692,66 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hash-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      hash table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="hash table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hash-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      hash function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thread-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      thread safety
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      dictionary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -971,37 +971,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tuple" class="md-nav__link">
+  <a href="#hash-table" class="md-nav__link">
     <span class="md-ellipsis">
-      tuple
+      hash table
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class" class="md-nav__link">
-    <span class="md-ellipsis">
-      class
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="class">
+    <nav class="md-nav" aria-label="hash table">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#constructor" class="md-nav__link">
+  <a href="#hash-function" class="md-nav__link">
     <span class="md-ellipsis">
-      constructor
+      hash function
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#oop" class="md-nav__link">
+  <a href="#thread-safety" class="md-nav__link">
     <span class="md-ellipsis">
-      OOP
+      thread safety
     </span>
   </a>
   
@@ -1009,6 +1000,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      dictionary
+    </span>
+  </a>
   
 </li>
       
@@ -1031,123 +1031,39 @@
   
 
 
-  <h1>2025.03.22 tuple,class</h1>
+  <h1>2025.03.31 hash table,dictionary</h1>
 
-<h2 id="tuple">tuple<a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h2>
+<h2 id="hash-table">hash table<a class="headerlink" href="#hash-table" title="Permanent link">&para;</a></h2>
+<h4 id="hash-function">hash function<a class="headerlink" href="#hash-function" title="Permanent link">&para;</a></h4>
 <ul>
-<li>field는 validate 되지 않는다</li>
-<li>기본적으로 property의 이름은 Item1부터 시작한다 <br />
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="n">value1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">);</span><span class="w"> </span>
-<span class="w">    </span><span class="n">value1</span><span class="p">.</span><span class="n">Item1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-<span class="w">    </span><span class="n">value1</span><span class="p">.</span><span class="n">Item2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// custom named property</span>
-<span class="w">    </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">Number</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">Character</span><span class="p">)</span><span class="w"> </span><span class="n">value2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">value2</span><span class="p">.</span><span class="n">Number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// access Item2 </span>
-<span class="w">    </span><span class="n">value2</span><span class="p">.</span><span class="n">Item2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;d&#39;</span><span class="p">;</span><span class="w"> </span>
-</code></pre></div></li>
-<li>tuple 간의 == 비교는 각 property 간의 implicit conversion을 포함한다    </li>
-<li>deconstruct  <br />
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<span class="w">    </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">point</span><span class="p">;</span>
-</code></pre></div></li>
-<li>struct deconstruct <br />
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
-<span class="w">        </span><span class="k">in</span><span class="w"> </span><span class="n">Y</span><span class="p">;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="n">Deconstruct</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Y</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-</code></pre></div></li>
-<li>implicit struct deconstruct  <br />
-  Deconstruct를 구현하면 직접 사용하지 않아도 가능 <br />
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
-<span class="w">    </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">xp2</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">yp2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">;</span>
-</code></pre></div></li>
+<li>C#에서는 key로 쓰이는 type의 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=net-9.0">GetHashCode</a> method를 사용한다   </li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/api/system.object.equals?view=net-9.0">Equals</a>를 override 했다면 반드시 GetHashCode도 override 해야 한다 <br />
+  GetHashCode를 override 했다면 Equals를 override 해야 한다</li>
+<li>mutable reference type의 GetHashCode는 다음을 지켜야 한다 <br />
+  object의 life time 동안 hashcode는 항상 동일해야 한다 <br />
+  GetHashCode를 override 하는 경우 immutable인 non-static field 만을 사용해야 한다   </li>
+<li>immutable type의 GetHashCode는 기본적으로 reflection을 사용한다 <br />
+  override를 통해 최적화 할 수 있다   </li>
+<li>a와 b 두 object의 Equals method가 true라면 GetHashCode의 결과도 동일해야 한다 <br />
+  a와 b 두 object의 Equals method가 false라면 GetHashCode의 결과는 같지 않아도 된다     </li>
+<li>좋은 성능을 위해서는 hash function은 고른 분포를 가져야 한다 <br />
+  object에 작은 변경이 있어도 GetHashCode의 결과가 크게 달라지는 것이 좋다   </li>
 </ul>
-<h2 id="class">class<a class="headerlink" href="#class" title="Permanent link">&para;</a></h2>
-<h4 id="constructor">constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h4>
+<h4 id="thread-safety">thread safety<a class="headerlink" href="#thread-safety" title="Permanent link">&para;</a></h4>
 <ul>
-<li>constructor chaining <br />
-  여러 constructor를 하나의 constructor로 forward  <br />
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Motorcycle</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DrieverIntensity</span><span class="p">;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">DriverName</span><span class="p">;</span>
-
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Motorcycle</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">intensity</span><span class="p">)</span>
-<span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">intensity</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// executed after master constructor</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Motorcycle</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
-<span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// executed after master constructor</span>
-<span class="w">            </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">// master constructor</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Motorcycle</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">intensity</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">DriverIntensity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intensity</span><span class="p">;</span>
-<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">DriverName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></li>
-<li>
-<p>optional parameter constructor  <br />
-  함수의 optional parameter 와 동일 <br />
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Motorcycle</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DriverIntensity</span><span class="p">;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">DriverName</span><span class="p">;</span>
-
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Motorcycle</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">intensity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">strhing</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">DriverIntensity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intensity</span><span class="p">;</span>
-<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">DriverName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="n">Motorcycle</span><span class="w"> </span><span class="n">motor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Motorcycle</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bart&quot;</span><span class="p">);</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>static constructor <br />
-  static property 를 runtime 에 할당  <br />
-  class instance를 만들거나 class의 static property, method를 사용하기 전에 실행됨 <br />
-  parameter를 전달할 수 없고 overload를 할 수 없음 <br />
-  runtime에 한번만 실행되는 것이 보장됨 <br />
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">SavingAccounts</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">CurrentInterestRate</span><span class="p">;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">CurrentBalance</span><span class="p">;</span><span class="w"> </span>
-<span class="w">        </span><span class="c1">// object constructor</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">SavingAccount</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">balance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">CurrentBalance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="c1">// static constructor</span>
-<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="nf">SavingAccount</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// connect database...</span>
-<span class="w">            </span><span class="n">CurrentInterestRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-</li>
-<li>static class  <br />
-  utility class, C++ 등의 class가 없는 namespace 와 비슷한 역할  <br />
-  instance를 만들 수 없고, static property 와 static method 만을 구현할 수 있음    </li>
-<li>using static <br />
-  class의 static member를 class를 적지 않고 사용 가능 <br />
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="nn">static</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">;</span>
-
-<span class="w">    </span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">);</span>
-</code></pre></div></li>
+<li>하나의 thread만 write operation을 할 때에 다른 thread들은 lock-free read operation을 할 수 있다   </li>
+<li>여러 thread가 write operation을 하는 경우에는 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable.synchronized?view=net-9.0#system-collections-hashtable-synchronized(system-collections-hashtable)">Synchronized(Hashtable)</a> wrapper를 사용해야 한다</li>
 </ul>
-<h4 id="oop">OOP<a class="headerlink" href="#oop" title="Permanent link">&para;</a></h4>
-<ol>
-<li>encapsulation <br />
-     class의 implementation을 사용자에게서 숨기고, private data들을 보호하는 역할      </li>
-<li>inheritance <br />
-   parent-child 관계일 때만 inheritance를 사용한다 ( A is-a B 관계 ) <br />
-   예시: Truck is-a Car <br />
-   has-a 관계일 때는 delegate를 사용한다 <br />
-   예시: Car has-a Radio   </li>
-<li>polymorphism <br />
-   base class가 derived class들을 대상으로 구현한 interface 같은 역할   </li>
-</ol>
+<h2 id="dictionary">dictionary<a class="headerlink" href="#dictionary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>중복된 key에 대한 Add method 사용은 ArguementExeption을 throw 한다   </li>
+<li>없는 key에 대한 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.item?view=net-7.0">Item[]</a> property의 접근은 KeyNotFoundException을 throw 한다   </li>
+<li>key를 포함하고 있는지 확실하지 않을 때에는 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.tryadd?view=net-9.0">TryAdd</a>, <a href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.trygetvalue?view=net-7.0">TryGetValue</a>가 효율적이다</li>
+<li>dictionary의 constructor를 통해 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.iequalitycomparer-1?view=net-7.0">IEqualityComparer</a>를 사용해 key 값을 비교하게 할 수 있다 <br />
+  또는 initial capacity를 직접 설정할 수 있다   </li>
+<li>XML 등을 dictionary로 만들 수 있다 <a href="https://learn.microsoft.com/en-us/dotnet/standard/linq/work-dictionaries-linq-xml">Example</a>   </li>
+<li>key만이 필요하고 set operation이 필요하다면 <a href="https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-collections-generic-hashset%7Bt%7D">HashSet</a>을 사용하자   </li>
+</ul>
 
 
 
@@ -1170,7 +1086,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 24, 2025 07:17:24">March 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 31, 2025 07:12:06">March 31, 2025</span>
   </span>
 
     
@@ -1180,7 +1096,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 22, 2025 15:36:34">March 22, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 31, 2025 07:12:06">March 31, 2025</span>
   </span>
 
     
