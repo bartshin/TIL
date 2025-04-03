@@ -1094,9 +1094,17 @@
 <li>big-Ω는 lower bounds, big-Ο는 upper bounds, θ는 두가지를 모두 의미한다   </li>
 </ul>
 <h4 id="procedure-generated-terrain">procedure generated terrain<a class="headerlink" href="#procedure-generated-terrain" title="Permanent link">&para;</a></h4>
-<p>o- <a href="https://github.com/simondevyoutube/ProceduralTerrain_Part1">reference</a> <br />
-- 이전에 진행했던 사이드 프로젝트에서 필요했던 algorithm으로 pseudocode를 작성 <br />
-- terrain generator <br />
+<ul>
+<li>
+<p>demo <br />
+<br />
+<video src="https://github.com/bartshin/TIL/raw/refs/heads/main/docs/assets/videos/demo.webm" width="320" height="240"></video></p>
+</li>
+<li>
+<p><a href="https://github.com/simondevyoutube/ProceduralTerrain_Part1">reference</a>   </p>
+</li>
+<li>이전에 진행했던 사이드 프로젝트에서 필요했던 algorithm으로 pseudocode를 작성   </li>
+<li>terrain generator <br />
   필요할 때마다 center를 변경하고 Update를 실행해 map을 그리는 단위인 chunk들을 생성, 삭제 <br />
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"> </span><span class="p">{</span>
 
@@ -1155,8 +1163,9 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Chunk</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">terrainVertices</span><span class="p">,</span><span class="w"> </span><span class="n">colors</span><span class="p">}</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
-</code></pre></div>
-- noise <br />
+</code></pre></div></li>
+<li>
+<p>noise <br />
   원하는 지점에서의 자연스러운 height 값을 생성 <br />
   입력 x, y 값이 같다면 항상 같은 height 값을 생성하기 때문에 저장할 필요가 없음 <br />
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Noise</span><span class="w"> </span><span class="p">{</span>
@@ -1186,8 +1195,9 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<ul>
-<li>quad tree <br />
+</li>
+<li>
+<p>quad tree <br />
   중심점이 이동할 때마다 기존에 생성된 맵에 추가해야 하는 부분과 제거해야 하는 부분을 판별하기 위한 tree 구조 <br />
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">QuadTree</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
@@ -1229,7 +1239,8 @@
 <span class="w">  </span><span class="c1">// parent를 기준으로 네 방향에 해당하는 Node를 생성</span>
 <span class="w">  </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateChildren</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">parent</span><span class="p">)</span><span class="w"> </span>
 <span class="p">}</span>
-</code></pre></div></li>
+</code></pre></div></p>
+</li>
 </ul>
 <h4 id="exception">exception<a class="headerlink" href="#exception" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1269,7 +1280,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 3, 2025 09:33:47">April 3, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 3, 2025 09:49:09">April 3, 2025</span>
   </span>
 
     
