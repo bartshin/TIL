@@ -1108,137 +1108,137 @@
   필요할 때마다 center를 변경하고 Update를 실행해 map을 그리는 단위인 chunk들을 생성, 삭제 <br />
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Terrain</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">      </span><span class="n">Dict</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">Chunk</span><span class="o">&gt;</span><span class="w"> </span><span class="n">currentChunks</span>
-<span class="w">      </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span>
-<span class="w">      </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Chunk</span><span class="o">&gt;</span><span class="w"> </span><span class="n">recycles</span>
-<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">size</span>
-<span class="w">      </span><span class="n">Noise</span><span class="w"> </span><span class="n">noise</span>
+<span class="w">        </span><span class="n">Dict</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">Chunk</span><span class="o">&gt;</span><span class="w"> </span><span class="n">currentChunks</span>
+<span class="w">        </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Chunk</span><span class="o">&gt;</span><span class="w"> </span><span class="n">recycles</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">size</span>
+<span class="w">        </span><span class="n">Noise</span><span class="w"> </span><span class="n">noise</span>
 
-<span class="w">      </span><span class="nf">Update</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">QuadTree</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QuadTree</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="nf">Update</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">QuadTree</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QuadTree</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="p">}</span>
 
-<span class="w">        </span><span class="n">Dict</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">ChunkData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">newChunkData</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">tree</span><span class="p">.</span><span class="n">GetChildren</span><span class="p">()</span>
-<span class="w">          </span><span class="n">newChunks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Chunk</span><span class="p">,</span><span class="w"> </span><span class="n">ChunkData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">difference</span>
-<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Chunk</span><span class="p">,</span><span class="w"> </span><span class="n">ChunkData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">intersection</span>
+<span class="w">            </span><span class="n">Dict</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="n">ChunkData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">newChunkData</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">tree</span><span class="p">.</span><span class="n">GetChildren</span><span class="p">()</span>
+<span class="w">                </span><span class="n">newChunks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+<span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Chunk</span><span class="p">,</span><span class="w"> </span><span class="n">ChunkData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">difference</span>
+<span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Chunk</span><span class="p">,</span><span class="w"> </span><span class="n">ChunkData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">intersection</span>
 
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">newChunkData</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">newChunks</span>
-<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="n">currentChunks</span><span class="p">.</span><span class="n">Contain</span><span class="p">(</span><span class="n">newChunkData</span><span class="p">.</span><span class="n">key</span><span class="p">)</span>
-<span class="w">            </span><span class="n">intersection</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newChunk</span><span class="p">)</span>
-<span class="w">          </span><span class="k">else</span>
-<span class="w">            </span><span class="n">difference</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newChunk</span><span class="p">)</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">newChunkData</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">newChunks</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">currentChunks</span><span class="p">.</span><span class="n">Contain</span><span class="p">(</span><span class="n">newChunkData</span><span class="p">.</span><span class="n">key</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">intersection</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newChunk</span><span class="p">)</span>
+<span class="w">                </span><span class="k">else</span>
+<span class="w">                    </span><span class="n">difference</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newChunk</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">chunk</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">currentChunks</span>
-<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">newChunkData</span><span class="p">.</span><span class="n">Contain</span><span class="p">(</span><span class="n">chunk</span><span class="p">.</span><span class="n">key</span><span class="p">)</span>
-<span class="w">            </span><span class="n">recycles</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span><span class="w"> </span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">difference</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">          </span><span class="k">foreach</span><span class="w"> </span><span class="n">chunkData</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">difference</span>
-<span class="w">            </span><span class="nf">AllocateChunk</span><span class="p">(</span><span class="n">chunkData</span><span class="p">)</span>
-<span class="w">      </span><span class="p">}</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">chunk</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">currentChunks</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">newChunkData</span><span class="p">.</span><span class="n">Contain</span><span class="p">(</span><span class="n">chunk</span><span class="p">.</span><span class="n">key</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">recycles</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span><span class="w"> </span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">difference</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">                </span><span class="k">foreach</span><span class="w"> </span><span class="n">chunkData</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">difference</span>
+<span class="w">                    </span><span class="nf">AllocateChunk</span><span class="p">(</span><span class="n">chunkData</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
 
-<span class="w">      </span><span class="n">AllocateChunk</span><span class="p">(</span><span class="n">chunkData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">recycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recycles</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">recycle</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
-<span class="w">          </span><span class="nf">ChangeChunkData</span><span class="p">(</span><span class="n">chunkData</span><span class="p">)</span>
-<span class="w">        </span><span class="k">else</span>
-<span class="w">          </span><span class="n">currentChunks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">CreateChunk</span><span class="p">(</span><span class="n">chunkData</span><span class="p">))</span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span>
+<span class="w">        </span><span class="n">AllocateChunk</span><span class="p">(</span><span class="n">chunkData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">recycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recycles</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">recycle</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<span class="w">                </span><span class="nf">ChangeChunkData</span><span class="p">(</span><span class="n">chunkData</span><span class="p">)</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">                </span><span class="n">currentChunks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">CreateChunk</span><span class="p">(</span><span class="n">chunkData</span><span class="p">))</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span>
 
-<span class="w">      </span><span class="n">Chunk</span><span class="w"> </span><span class="nf">CreateChunk</span><span class="p">(</span><span class="n">chunkData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Array</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">terrainVertices</span>
-<span class="w">        </span><span class="n">Dict</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">),</span><span class="w"> </span><span class="n">Color</span><span class="o">&gt;</span><span class="w"> </span><span class="n">colors</span>
-<span class="w">        </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chunkData</span><span class="p">.</span><span class="n">size</span>
-<span class="w">        </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chunkData</span><span class="p">.</span><span class="n">center</span>
-<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">STEP</span>
+<span class="w">        </span><span class="n">Chunk</span><span class="w"> </span><span class="nf">CreateChunk</span><span class="p">(</span><span class="n">chunkData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Array</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">terrainVertices</span>
+<span class="w">            </span><span class="n">Dict</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">),</span><span class="w"> </span><span class="n">Color</span><span class="o">&gt;</span><span class="w"> </span><span class="n">colors</span>
+<span class="w">            </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chunkData</span><span class="p">.</span><span class="n">size</span>
+<span class="w">            </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chunkData</span><span class="p">.</span><span class="n">center</span>
+<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="n">STEP</span>
 
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">center</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">center</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">STEP</span>
-<span class="w">          </span><span class="k">for</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">center</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">center</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">STEP</span>
-<span class="w">            </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">pos</span>
-<span class="w">            </span><span class="kt">double</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">noise</span><span class="p">.</span><span class="n">Get</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
-<span class="w">            </span><span class="n">terrainVertices</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">)</span>
-<span class="w">            </span><span class="c1">// CalcColor use another noise</span>
-<span class="w">            </span><span class="n">colors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">CalcColor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">))</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">center</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">center</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">STEP</span>
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">center</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">center</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">STEP</span>
+<span class="w">                    </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">pos</span>
+<span class="w">                    </span><span class="kt">double</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">noise</span><span class="p">.</span><span class="n">Get</span><span class="p">(</span><span class="n">pos</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">terrainVertices</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">)</span>
+<span class="w">                    </span><span class="c1">// CalcColor use another noise</span>
+<span class="w">                    </span><span class="n">colors</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">CalcColor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">))</span>
 
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Chunk</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">terrainVertices</span><span class="p">,</span><span class="w"> </span><span class="n">colors</span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Chunk</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">terrainVertices</span><span class="p">,</span><span class="w"> </span><span class="n">colors</span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></li>
 <li>
 <p>noise <br />
   원하는 지점에서의 자연스러운 height 값을 생성 <br />
   입력 x, y 값이 같다면 항상 같은 height 값을 생성하기 때문에 저장할 필요가 없음 <br />
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Noise</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Noise</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">octaves</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">persistence</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">octaves</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">persistence</span><span class="p">;</span>
 
-<span class="w">  </span><span class="c1">// generate noise (perlin noise, simplex noise)</span>
-<span class="w">  </span><span class="n">Func</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">noiseFunc</span><span class="p">;</span>
+<span class="w">      </span><span class="c1">// generate noise (perlin noise, simplex noise)</span>
+<span class="w">      </span><span class="n">Func</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">noiseFunc</span><span class="p">;</span>
 
-<span class="w">  </span><span class="c1">// Get radom value</span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="nf">Get</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">normalization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">      </span><span class="c1">// random 높이 값을 생성</span>
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="nf">Get</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">normalization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-<span class="w">    </span><span class="c1">// 계산된 noise에 octave 마다 amplitude로 더 작은 값을 더해서</span>
-<span class="w">    </span><span class="c1">// 파도와 같은 디테일을 추가한다</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">octaves</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="w"> </span>
-<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">noiseValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">noiseFunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
-<span class="w">      </span><span class="k">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">noiseValue</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">amplitude</span>
-<span class="w">      </span><span class="n">normalization</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">amplitude</span>
-<span class="w">      </span><span class="c1">// lower amplitude</span>
-<span class="w">      </span><span class="n">amplitude</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">persistence</span>
-<span class="w">    </span><span class="n">total</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">normalization</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">value</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="c1">// 계산된 noise에 octave 마다 amplitude로 더 작은 값을 더해서</span>
+<span class="w">        </span><span class="c1">// 파도와 같은 디테일을 추가한다</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">octaves</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="w"> </span>
+<span class="w">          </span><span class="kt">double</span><span class="w"> </span><span class="n">noiseValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">noiseFunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">          </span><span class="k">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">noiseValue</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">amplitude</span>
+<span class="w">          </span><span class="n">normalization</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">amplitude</span>
+<span class="w">          </span><span class="c1">// lower amplitude</span>
+<span class="w">          </span><span class="n">amplitude</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">persistence</span>
+<span class="w">        </span><span class="n">total</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">normalization</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">value</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 </code></pre></div></p>
 </li>
 <li>
 <p>quad tree <br />
   중심점이 이동할 때마다 기존에 생성된 맵에 추가해야 하는 부분과 제거해야 하는 부분을 판별하기 위한 tree 구조 <br />
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">QuadTree</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span>
-<span class="w">    </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">children</span>
-<span class="w">    </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">size</span>
-<span class="w">  </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">QuadTree</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span>
+<span class="w">        </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">children</span>
+<span class="w">        </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">size</span>
+<span class="w">      </span><span class="p">}</span>
 
-<span class="w">  </span><span class="n">Node</span><span class="w"> </span><span class="n">root</span>
-<span class="w">  </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="n">Node</span><span class="w"> </span><span class="n">root</span>
+<span class="w">      </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span>
 
-<span class="w">  </span><span class="n">QuadTree</span><span class="p">((</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">center</span><span class="p">,</span>
-<span class="w">      </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
-<span class="w">      </span><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">      </span><span class="n">QuadTree</span><span class="p">((</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Node</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">center</span><span class="p">,</span>
+<span class="w">          </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+<span class="w">          </span><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="c1">// 현재 중심을 기준으로 나타내야 하는 모든 Node를 찾기</span>
+<span class="w">      </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetChildren</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">children</span>
+
+<span class="w">      </span><span class="c1">// 중심이 되는 좌표를 변경해 root의 children을 다시 계산 </span>
+<span class="w">      </span><span class="n">UpdateCenter</span><span class="p">((</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 중심이 되는 root에서 부터 Tree에 포함시키려는 거리를 설정</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span>
+<span class="w">        </span><span class="nf">InsertCenter</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="c1">// target Node에서 center 까지의 거리를 이용해 Tree에 포함하고 필요하다 면 chlidren을 생성</span>
+<span class="w">      </span><span class="n">InsertCenter</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">threshold</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distanceTo</span><span class="p">(</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">center</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">threshold</span>
+<span class="w">          </span><span class="n">target</span><span class="p">.</span><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateChildren</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+<span class="w">          </span><span class="k">foreach</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">children</span>
+<span class="w">            </span><span class="nf">InsertCenter</span><span class="p">(</span><span class="n">child</span><span class="p">,</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="c1">// parent를 기준으로 네 방향에 해당하는 Node를 생성</span>
+<span class="w">      </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateChildren</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">parent</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="c1">// 현재 중심을 기준으로 나타내야 하는 모든 Node를 찾기</span>
-<span class="w">  </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetChildren</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">children</span>
-
-<span class="w">  </span><span class="c1">// 중심이 되는 좌표를 변경해 root의 children을 다시 계산 </span>
-<span class="w">  </span><span class="n">UpdateCenter</span><span class="p">((</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// 중심이 되는 root에서 부터 Tree에 포함시키려는 거리를 설정</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span>
-<span class="w">    </span><span class="nf">InsertCenter</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="c1">// target Node에서 center 까지의 거리를 이용해 Tree에 포함하고 필요하다 면 chlidren을 생성</span>
-<span class="w">  </span><span class="n">InsertCenter</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">threshold</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distanceTo</span><span class="p">(</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">center</span><span class="p">)</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">dist</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">threshold</span>
-<span class="w">      </span><span class="n">target</span><span class="p">.</span><span class="n">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateChildren</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
-<span class="w">      </span><span class="k">foreach</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">children</span>
-<span class="w">        </span><span class="nf">InsertCenter</span><span class="p">(</span><span class="n">child</span><span class="p">,</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="c1">// parent를 기준으로 네 방향에 해당하는 Node를 생성</span>
-<span class="w">  </span><span class="n">Array</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateChildren</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">parent</span><span class="p">)</span><span class="w"> </span>
-<span class="p">}</span>
 </code></pre></div></p>
 </li>
 </ul>
@@ -1246,7 +1246,7 @@
 <ul>
 <li>여러개의 catch가 있을 때는 if처럼 위쪽의 catch에 해당 되면 아래는 실행되지 않는다   </li>
 <li>try, catch에서 when을 사용해 error를 filter 할 수 있다 <br />
-    <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetValuesFromArray</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">array</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="n">ArgumentOutOfRangeException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">ParamName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;start&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">//invalid start parameter </span>
@@ -1280,7 +1280,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 3, 2025 09:50:39">April 3, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 3, 2025 10:04:06">April 3, 2025</span>
   </span>
 
     
