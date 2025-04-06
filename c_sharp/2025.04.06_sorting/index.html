@@ -76,6 +76,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#sorting" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -804,6 +809,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2025.04.06 sorting
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -815,6 +833,65 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      sorting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sorting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparison-sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      comparison sorting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-access-array-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      direct access array sort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuple-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      tuple sort
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1028,6 +1105,56 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      sorting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sorting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparison-sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      comparison sorting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-access-array-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      direct access array sort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuple-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      tuple sort
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1047,7 +1174,29 @@
 
   <h1>2025.04.06 sorting</h1>
 
-
+<h2 id="sorting">sorting<a class="headerlink" href="#sorting" title="Permanent link">&para;</a></h2>
+<h4 id="comparison-sorting">comparison sorting<a class="headerlink" href="#comparison-sorting" title="Permanent link">&para;</a></h4>
+<ol>
+<li>n개의 것으로 이루어진 list를 sorting 한 것의 결과는 n!개 이다 (각 원소가 정렬된 후의 위치를 나열한 순열)   </li>
+<li>comparison model에서 원하는 것을 찾기 위해 binary (decision) tree를 이용하면 O(log n)의 단계를 거쳐 O(n)의 leaf가 필요하듯이 sorting의 결과를 얻기 위해서 <span class="arithmatex">\(\Omega\)</span>(log n!)의 단계를 거쳐 Ω(n!)의 leaf가 필요하다   </li>
+<li>log(n!)은 nlog(n) 보다 크기 때문에 list의 sorting은 최소 nlog(n)의 과정이 필요하다   </li>
+</ol>
+<h4 id="direct-access-array-sort">direct access array sort<a class="headerlink" href="#direct-access-array-sort" title="Permanent link">&para;</a></h4>
+<ul>
+<li>key의 중복이 없다면 comparison 없이 hashing으로 search를 했던 것와 같이 Direction-Access-Array(DAA)을 생성해 각 key를 넣은 후 DAA을 순회하며 key를 가져오면 sorting이 되어 있다고 볼 수 있다   </li>
+<li>key의 최대값이 u라고 한다면 DAA를 생성하는데 O(u), 각 키를 넣는데 n, DAA를 순회해 결과를 list로 만드는데 O(u)가 필요해서 총 O( n + u )의 과정이 필요하다 ( u &gt;= n )    </li>
+</ul>
+<h4 id="tuple-sort">tuple sort<a class="headerlink" href="#tuple-sort" title="Permanent link">&para;</a></h4>
+<ul>
+<li>하지만 u가 <span class="arithmatex">\(\theta(n)\)</span>이 아닌 u &lt; n<sup>2</sup>가 되면 효율이 떨어지기 때문에 나누는 수 n을 정하고 key를 k = an + b (a, b)의 쌍으로 만들어 u를 작게 만들 수 있다 <br />
+  (모든 key에 대해 나누는 수 n을 100으로 정한 뒤 key가 10001이라면 (100,1)으로 표현 )   </li>
+<li>key를 전부 tuple로 바꾼 list를 먼저 b를 기준으로 정렬한 후 정렬된 list를 다시 a를 기준으로 정렬하면 전체가 정렬되게 된다 (stable sorting 사용)   </li>
+<li>[  4,    5,    32,      808,    128,     23 ] 를 n = 10으로 나누면 <br />
+  [ (0,4), (0,5), (3, 2), (80,8), (12,8), (2,3) ] 가 되고 b를 기준으로 정렬하면 <br />
+  [ (3,2), (2,3), (0,4), (0,5), (80,8), (12,8) ] 이 된다 이것을 다시 a를 기준으로 정렬하면 <br />
+        [ (0,4), (0,5), (2,3), (3,2), (12,8), (80,8) ] 이 되어 전체가 정렬된다   </li>
+<li>하지만 list의 key에 중복이 없더라도 a, b가 각각 중복이 생기기 때문에 DAA sort를 사용할 수 없다       </li>
+</ul>
 
 
 
@@ -1070,7 +1219,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 6, 2025 15:15:48">April 6, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 6, 2025 16:29:53">April 6, 2025</span>
   </span>
 
     
