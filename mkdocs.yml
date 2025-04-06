@@ -5,7 +5,7 @@ repo_url: https://github.com/bartshin/TIL
 
 theme:
     name: 'material'
-    logo: assets/images/bart.png
+    logo: assets/images/profile.jpg
     favicon: assets/images/bart.JPEG
     font:
       text: Roboto
