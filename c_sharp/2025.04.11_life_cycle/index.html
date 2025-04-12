@@ -930,6 +930,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#finalize" class="md-nav__link">
+    <span class="md-ellipsis">
+      finalize
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idisposable" class="md-nav__link">
+    <span class="md-ellipsis">
+      IDisposable
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1194,6 +1212,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#finalize" class="md-nav__link">
+    <span class="md-ellipsis">
+      finalize
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idisposable" class="md-nav__link">
+    <span class="md-ellipsis">
+      IDisposable
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1231,10 +1267,8 @@
 <ul>
 <li>reference variable을 null로 만드는 것은 garbage collector에게 어떤 것도 강제하지 않는다   </li>
 <li>garbage collect에서 제외되는 object   <ol>
-<li>compiler와 (call)stack walker가 제공하는 variable들   <blockquote>
-<p><a href="https://mattwarren.org/2019/01/21/Stackwalking-in-the-.NET-Runtime/">The CLR makes heavy use of a technique known as stack walking (or stack crawling). This involves <strong>iterating the sequence of call frames for a particular thread</strong>, from the most recent (the thread’s current function) back down to the base of the stack.</a>    </p>
-</blockquote>
-</li>
+<li>compiler와 (call)stack walker가 제공하는 variable들 <br />
+<a href="https://mattwarren.org/2019/01/21/Stackwalking-in-the-.NET-Runtime/">The CLR makes heavy use of a technique known as stack walking (or stack crawling). This involves <strong>iterating the sequence of call frames for a particular thread</strong>, from the most recent (the thread’s current function) back down to the base of the stack.</a>    </li>
 <li>runtime에 garbage collection이 실행되는 시점에 접근 가능한 managed object의 handle들   </li>
 <li>static data들   </li>
 </ol>
@@ -1247,7 +1281,19 @@
 <ul>
 <li>특정 코드를 실행하기 전 그 도중에 garbage collection의 영향을 받기를 원하지 않을 때   </li>
 <li>특별히 많은 object들을 할당한 뒤 최대한 메모리를 확보하기 위해서   </li>
-<li><a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://learn.microsoft.com/en-us/dotnet/api/system.gc.collect%3Fview%3Dnet-9.0&amp;ved=2ahUKEwjTyrnfj9CMAxWcsVYBHX2GGE0QFnoECAkQAQ&amp;usg=AOvVaw388NbbxOMQoPC791LEWIaa">GC.Collect</a>를 실행하고 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.gc.waitforpendingfinalizers?view=net-9.0">GC.WaitForPedingFinalizers</a>를 실행   </li>
+<li><a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://learn.microsoft.com/en-us/dotnet/api/system.gc.collect%3Fview%3Dnet-9.0&amp;ved=2ahUKEwjTyrnfj9CMAxWcsVYBHX2GGE0QFnoECAkQAQ&amp;usg=AOvVaw388NbbxOMQoPC791LEWIaa">GC.Collect</a>를 실행하고 <a href="https://learn.microsoft.com/en-us/dotnet/api/system.gc.waitforpendingfinalizers?view=net-9.0">GC.WaitForPedingFinalizers</a>를 실행    </li>
+</ul>
+<h4 id="finalize">finalize<a class="headerlink" href="#finalize" title="Permanent link">&para;</a></h4>
+<p>c++에서의 deconstructor와 사용법이 같다 하지만 G.C에 의해 작동되므로 실행 과정이 다르다 <br />
+ finalize에서 class의 reference type에 접근하는 것은 안전하지 않다 <br />
+1.  object의 메모리를 할당할 때 finalize가 있는 object는 따로 finalization queue에 등록한다 <br />
+2.  G.C가 메모리를 해제할 때 finalization queue의 object를 f-reachable table로 복사한다 <br />
+3.  이후 다음 garbage collection 시점에 새로운 thread가 생성되 각 object의 finalize를 실행한다    </p>
+<h4 id="idisposable">IDisposable<a class="headerlink" href="#idisposable" title="Permanent link">&para;</a></h4>
+<ul>
+<li>finalize와는 달리 G.C에 의존하지 않고 object의 reference가 해제될 때 user code에서 명시적으로 실행되기 때문에 더욱 빠르고 finalization queue에 영향을 주지 않는다   </li>
+<li>interface이기 때문에 value type인 struct도 사용이 가능하다   </li>
+<li>object 내의 모든 reference type에 안전하게 접근할 수 있다    </li>
 </ul>
 
 
@@ -1271,7 +1317,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 11, 2025 14:13:41">April 11, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 12, 2025 03:27:07">April 12, 2025</span>
   </span>
 
     
