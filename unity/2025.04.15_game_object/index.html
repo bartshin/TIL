@@ -1234,6 +1234,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#static-gameobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      static GameObject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       읽어 볼 내용
@@ -1334,6 +1343,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#static-gameobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      static GameObject
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       읽어 볼 내용
@@ -1411,11 +1429,19 @@
 <li>object의 parent가 Non-Uniform scale을 가지고 있고 parent를 기준으로 회전한다면 왜곡되어 보일 수 있다   </li>
 <li>Box Collider의 scale을 Non-Uniform scale로 변경하면 render 하고 있는 mesh와 맞지 않을 수 있다   </li>
 </ul>
+<h4 id="static-gameobject">static GameObject<a class="headerlink" href="#static-gameobject" title="Permanent link">&para;</a></h4>
+<ul>
+<li>runtime에 움직이지 않는 경우 static flag를 사용하면 성능을 향상시킬 수 있다 (runtime에 flag를 바꿔도 미리 계산되지 않기 때문에 효과가 없음)   </li>
+<li><a href="https://docs.unity3d.com/2021.3/Documentation/Manual/class-LightingSettings.html#MixedLighting">Baked Global Illumination</a> 이나 <a href="https://docs.unity3d.com/2021.3/Documentation/Manual/class-LightingSettings.html#RealtimeLighting">Enlighten Realtime Global Illumination</a>을 이용할 경우 Contribute GI를 사용해 최적화 할 수 있다    </li>
+</ul>
 <h4 id="_1">읽어 볼 내용<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p><a href="https://docs.unity3d.com/2021.3/Documentation/Manual/Layers.html">Layers</a> <br />
 <a href="https://docs.unity3d.com/2021.3/Documentation/ScriptReference/Camera-main.html">Camera.main</a> <br />
-<a href="https://docs.unity3d.com/2021.3/Documentation/Manual/CollidersOverview.html">collision</a>   </p>
+<a href="https://docs.unity3d.com/2021.3/Documentation/Manual/CollidersOverview.html">collision</a> <br />
+<a href="https://docs.unity3d.com/2021.3/Documentation/ScriptReference/GameObjectUtility.SetStaticEditorFlags.html">GameObjectUtility.SetStaticEditorFlags</a> <br />
+<a href="https://docs.unity3d.com/2021.3/Documentation/Manual/BestPracticeLightingPipelines.html">Built-in Render Pipeline and lighting</a> <br />
+<a href="https://docs.unity3d.com/2021.3/Documentation/Manual/DrawCallBatching.html">Static Batching</a>   </p>
 </blockquote>
 
 
@@ -1439,7 +1465,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 15, 2025 05:52:58">April 15, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 15, 2025 07:37:39">April 15, 2025</span>
   </span>
 
     
