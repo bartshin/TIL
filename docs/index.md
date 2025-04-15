@@ -21,9 +21,9 @@
 1. C sharp   
 	 - [MS learn](https://learn.microsoft.com/ko-kr/dotnet/csharp/)   
 	 - [Pro C# 10 with .Net 6 | Troelsen, Andrew](https://product.kyobobook.co.kr/detail/S000060827163)   
-
-
+2. Unity   
+	- [Unity Manual](https://docs.unity3d.com/2021.3/Documentation/Manual)  
+	
 시작일: 2025-03-11
-
 >email: [bartshin@icloud.com](mailto:bartshin@icloud.com)   
 >templete [Publish your Obsidian Notes](https://github.com/jobindjohn/obsidian-publish-mkdocs?tab=readme-ov-file)
