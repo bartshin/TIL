@@ -1175,16 +1175,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#event-function" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      event function
+      전체적인 순서
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#initilization" class="md-nav__link">
+    <span class="md-ellipsis">
+      initilization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      frame
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      update
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       읽어 볼 내용
     </span>
@@ -1248,16 +1275,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#event-function" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      event function
+      전체적인 순서
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#initilization" class="md-nav__link">
+    <span class="md-ellipsis">
+      initilization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      frame
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      update
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       읽어 볼 내용
     </span>
@@ -1292,26 +1346,47 @@
   <h1>2025.04.14 life cycle</h1>
 
 <h2 id="life-cycle">life cycle<a class="headerlink" href="#life-cycle" title="Permanent link">&para;</a></h2>
-<h4 id="event-function">event function<a class="headerlink" href="#event-function" title="Permanent link">&para;</a></h4>
-<p>전체적인 순서
-1. Initialization: Awake -&gt; OnEnable -&gt; Start
-2. Physics: FixedUpdate -&gt; OnAnimatorMove -&gt; OnTrigger -&gt; OnCollision
-3. Input event: OnMouse 
-4. Game logic: Update -&gt; OnAnimatorMove -&gt; Last
-5. Scene rendering: OnBecameVisible -&gt; Render ( OnWill -&gt; OnPre -&gt; On -&gt; OnPost ) -&gt; OnRenderImage
-6. Gizmo rendering
-7. GUI rendering: OnGUI
-8. Frame end
-9. Pausing: OnApplicationPause
-10. Decommisioning: OnApplicationQuit -&gt; OnDisable -&gt; OnDestroy
-- Start는 script 마다 1번만 실행된다 <br />
-- FixedUpdate는 각 프레임당 높은 frame rates에서는 더 적게, 낮은 frame rates에서는 더 자주 실행된다 <br />
-- OnApplicationPause는 pause가 발생된 frame 이후에 실제 pause가 시작되는 frame 이전에 실행된다
-- 예외적인 경우를 제외하고 서로 다른 GameObject들의 같은 event function 사이의 순서에 의존하면 안된다 (보장되지 않음) <br />
-- 같은 MonoBehaviour script의 순서는 정할 수 없지만 서로 다른 script의 순서는 조정할 수 있다 <a href="https://docs.unity3d.com/2021.3/Documentation/Manual/class-MonoManager.html">Script Execution Order</a>: 같은 scene 내에서 적용됨   </p>
-<h4 id="_1">읽어 볼 내용<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<h4 id="_1">전체적인 순서<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Initialization: Awake -&gt; OnEnable -&gt; Start   </li>
+<li>Physics: FixedUpdate -&gt; OnAnimatorMove -&gt; OnTrigger -&gt; OnCollision   </li>
+<li>Input event: OnMouse   </li>
+<li>Game logic: Update -&gt; OnAnimatorMove -&gt; Last   </li>
+<li>Scene rendering: OnBecameVisible -&gt; Render ( OnWill -&gt; OnPre -&gt; On -&gt; OnPost ) -&gt; OnRenderImage   </li>
+<li>Gizmo rendering   </li>
+<li>GUI rendering: OnGUI   </li>
+<li>Frame end   </li>
+<li>Pausing: OnApplicationPause   </li>
+<li>Decommisioning: OnApplicationQuit -&gt; OnDisable -&gt; OnDestroy   </li>
+<li>FixedUpdate는 각 프레임당 높은 frame rates에서는 더 적게, 낮은 frame rates에서는 더 자주 실행된다   </li>
+<li>OnApplicationPause는 pause가 발생된 frame 이후에 실제 pause가 시작되는 frame 이전에 실행된다   </li>
+<li>예외적인 경우를 제외하고 서로 다른 GameObject들의 같은 event function 사이의 순서에 의존하면 안된다 (보장되지 않음)   </li>
+<li>같은 MonoBehaviour script의 순서는 정할 수 없지만 서로 다른 script의 순서는 조정할 수 있다 <a href="https://docs.unity3d.com/2021.3/Documentation/Manual/class-MonoManager.html">Script Execution Order</a>: 같은 scene 내에서 적용됨   </li>
+</ol>
+<h4 id="initilization">initilization<a class="headerlink" href="#initilization" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Start는 script 마다 1번만 실행된다   </li>
+<li>같은 object 내에서 Awake는 항상 OnEnable 전에 OnEnable은 항상 Start 전에 실행되는 것이 보장되지만 시작시 GameObject가 active가 아니라면 Awake는 실행되지 않는다   </li>
+<li>runtime에 instantiate 한 object를 제외하면 Start 전에 모든 object의 Awake, OnEnable이 실행된다   </li>
+<li>Scene의 모든 object 들의 OnEnable 이후와 Start 이전에 sceneLoaded가 실행된다   </li>
+</ul>
+<h4 id="frame">frame<a class="headerlink" href="#frame" title="Permanent link">&para;</a></h4>
+<ul>
+<li>첫번째 frame 전에 script instance가 enabled 라면 Start가 실행된다   </li>
+<li>게임이 pause 되었다면 해당 frame과 그 다음 frame 사이에 OnApplicationPause가 실행된다   </li>
+</ul>
+<h4 id="update">update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h4>
+<ul>
+<li>일반적으로 대부분의 logic은 Update에서 처리한다   </li>
+<li>FixedUpdate는 frame rates에 영향을 받지 않고 일정한 간격으로 실행된다: 움직임을 계산할 때<a href="https://docs.unity3d.com/2021.3/Documentation/ScriptReference/Time-deltaTime.html">Time.deltaTime</a>으로 조정할 필요가 없음   </li>
+<li>script에서 직접 설정한 <a href="https://docs.unity3d.com/2021.3/Documentation/Manual/Glossary.html#FixedTimestep">Time.fixedDeltaTime</a>에 의해 실행됨   </li>
+<li>LateUpdate는 Update가 실행된 이후에 실행되기 때문에 만약 캐릭터의 움직임을 Update에서 변경했다면 캐릭터를 따라가는 카메라를 LateUpdate에서 조정할 수 있다   </li>
+</ul>
+<h4 id="_2">읽어 볼 내용<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <blockquote>
-<p><a href="https://docs.unity3d.com/2021.3/Documentation/Manual/ExecutionOrder.html">execution order</a>   </p>
+<p><a href="https://docs.unity3d.com/2021.3/Documentation/Manual/ExecutionOrder.html">script execution order</a> <br />
+    &gt; <a href="https://docs.unity3d.com/2021.3/Documentation/ScriptReference/SceneManagement.SceneManager-sceneLoaded.html">sceneLoaded</a> <br />
+    &gt; <a href="https://docs.unity3d.com/2021.3/Documentation/ScriptReference/SceneManagement.SceneManager-sceneUnloaded.html">sceneUnloaded</a>   </p>
 </blockquote>
 
 
@@ -1335,7 +1410,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 14, 2025 14:51:54">April 14, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 15, 2025 00:26:38">April 15, 2025</span>
   </span>
 
     
