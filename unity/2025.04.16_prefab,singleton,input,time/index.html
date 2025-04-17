@@ -14,6 +14,8 @@
         <link rel="prev" href="../2025.04.15_game_object/">
       
       
+        <link rel="next" href="../2025.04.17_rigidbody%2Ccollision/">
+      
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
         <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
@@ -75,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#singleton" class="md-skip">
+        <a href="#prefab" class="md-skip">
           Skip to content
         </a>
       
@@ -1211,6 +1213,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      prefab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#singleton" class="md-nav__link">
     <span class="md-ellipsis">
       singleton
@@ -1246,6 +1257,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2025.04.17_rigidbody%2Ccollision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2025.04.17 rigidbody,collision
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1276,6 +1310,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      prefab
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#singleton" class="md-nav__link">
@@ -1325,9 +1368,10 @@
 
   <h1>2025.04.16 prefab,singleton,input,time</h1>
 
-<p>****## prefab
-- script에 public prefab을 할당하는 경우 GameObject 보다는 특정한 component의 type을 정하면 잘못 설정되는 것을 막을 수 있다 (projectile의 경우에는 Rigidbody로 설정) <br />
-- GameObject type의 variable을 사용하면 Instantiate를 실행한 값이 GameObject가 되지만 특정 component type variable의 경우 Instantiate를 실행하면 결과인 GameObject의 해당 type을 얻을 수 있다 <br />
+<h2 id="prefab">prefab<a class="headerlink" href="#prefab" title="Permanent link">&para;</a></h2>
+<ul>
+<li>script에 public prefab을 할당하는 경우 GameObject 보다는 특정한 component의 type을 정하면 잘못 설정되는 것을 막을 수 있다 (projectile의 경우에는 Rigidbody로 설정)   </li>
+<li>GameObject type의 variable을 사용하면 Instantiate를 실행한 값이 GameObject가 되지만 특정 component type variable의 경우 Instantiate를 실행하면 결과인 GameObject의 해당 type을 얻을 수 있다 <br />
     <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FireProjectile</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Rigidbody</span><span class="w"> </span><span class="n">projectile</span><span class="p">;</span>
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
@@ -1338,7 +1382,8 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div></li>
+</ul>
 <h2 id="singleton">singleton<a class="headerlink" href="#singleton" title="Permanent link">&para;</a></h2>
 <ul>
 <li>unity에서 singleton을 사용하려면 GameObject에 script를 component로 설정하고 관리하면 된다 <br />
@@ -1411,7 +1456,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 16, 2025 15:06:31">April 16, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 16, 2025 15:06:51">April 16, 2025</span>
   </span>
 
     
