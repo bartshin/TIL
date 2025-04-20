@@ -14,12 +14,14 @@
         <link rel="prev" href="../2025.04.16_prefab%2Csingleton%2Cinput%2Ctime/">
       
       
+        <link rel="next" href="../2025.04.20_coroutine%2Craycast/">
+      
       
         <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
         <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
       
       <link rel="icon" href="../../assets/images/bart.JPEG">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
@@ -27,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1272,6 +1274,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sweep-based-ccd" class="md-nav__link">
+    <span class="md-ellipsis">
+      sweep-based CCD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       읽어 볼 내용
@@ -1294,6 +1305,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2025.04.20_coroutine%2Craycast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2025.04.20 coroutine,raycast
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1369,6 +1403,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sweep-based-ccd" class="md-nav__link">
+    <span class="md-ellipsis">
+      sweep-based CCD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       읽어 볼 내용
@@ -1434,7 +1477,9 @@
 </ul>
 <h2 id="collision">Collision<a class="headerlink" href="#collision" title="Permanent link">&para;</a></h2>
 <ul>
-<li>trigger collider가 작동하기 위해서는 두 개의 충돌 대상 중 하나 이상은 반드시 Rigidbody를 가지고 있어야 한다   </li>
+<li>collision class에는 impact velocity, contact points등의 정보가 있다   </li>
+<li>collision event가 작동하기 위해서는 하나 이상의 collider에 non-kinematic rigidbody가 있어야 한다   </li>
+<li>collision event는 disabled인 MonoBehaviour에도 보내진다   </li>
 </ul>
 <h3 id="continuous-collision-detection"><a href="https://docs.unity3d.com/Manual/ContinuousCollisionDetection.html">Continuous collision detection</a><a class="headerlink" href="#continuous-collision-detection" title="Permanent link">&para;</a></h3>
 <h5 id="speculative-cdd"><a href="https://docs.unity3d.com/Manual/speculative-ccd.html">Speculative CDD</a><a class="headerlink" href="#speculative-cdd" title="Permanent link">&para;</a></h5>
@@ -1444,7 +1489,14 @@
 <li>broad-phase<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>에서 축과 평행한 bounding-box의<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> 크기를 늘려서 더 많은 대상을 충돌 가능한 범주에 넣고 계산한다   </li>
 <li>linear movement, angular movement 모두 사용 가능하다   </li>
 <li>가장 가까운 충돌 지점을 찾기 때문에 충돌 대상의 normal을 잘못 선택하는 경우가 있다   </li>
-<li>collision detection phase에서만 실행되기 때문에 solving, intergrating phase에서 많은 힘을 받으면 충돌을 놓칠 수 있다   </li>
+</ul>
+<h4 id="sweep-based-ccd"><a href="https://docs.unity3d.com/Manual/sweep-based-ccd.html">sweep-based CCD</a><a class="headerlink" href="#sweep-based-ccd" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://continuous-collision-detection.github.io/scalable_ccd/">Time-Of-Impact</a> 알고리즘을 사용한다 <br />
+  object의 현재 속도를 바탕으로 다음 timestamp까지 진행할 궤도를 탐지한다 <br />
+        진행중에 충돌이 감지되면 object를 충돌할 지점까지 움직이는 것을 계산한다 그리고 충돌 이후의 속도를 다시 계산 후 다시 sweep(based CCD)을 실행한다   </li>
+<li>성능에 크게 영향을 미치기 때문에 많이 사용하면 좋지 않다, 특히 빠르게 움직이는 여러 물체간에 사용하면 더욱 많은 연산이 필요하다 <br />
+ collision detection phase에서만 실행되기 때문에 solving, intergrating phase에서 많은 힘을 받으면 충돌을 놓칠 수 있다   </li>
 </ul>
 <h4 id="_1">읽어 볼 내용<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <blockquote>
@@ -1484,7 +1536,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 17, 2025 07:11:47">April 17, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 20, 2025 12:13:58">April 20, 2025</span>
   </span>
 
     
