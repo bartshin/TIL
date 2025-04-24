@@ -951,6 +951,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/2025.04.24_Git_submodule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2025.04.24 Git submodule
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1335,6 +1358,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#transition-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transition event
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualelementschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      VisualElement.schedule
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#button" class="md-nav__link">
     <span class="md-ellipsis">
       button
@@ -1387,6 +1428,24 @@
   <a href="#custom-element" class="md-nav__link">
     <span class="md-ellipsis">
       custom element
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transition-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transition event
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualelementschedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      VisualElement.schedule
     </span>
   </a>
   
@@ -1561,12 +1620,98 @@
 <span class="p">}</span>
 </code></pre></div></li>
 </ul>
+<h4 id="transition-event"><a href="https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-Transition-Events.html">Transition event</a><a class="headerlink" href="#transition-event" title="Permanent link">&para;</a></h4>
+<ul>
+<li>VisualElement class는 MonoBehaviour의 event function이 없기 때문에 transition event를 이용하여 원하는 기능을 실행할 수 있다   </li>
+<li>샘플 코드 <br />
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TransitionEventExample</span><span class="p">:</span><span class="w"> </span><span class="n">VisualElement</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//button, timeLabel, colorChanger</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">TransitionEventExample</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">CreateUI</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">CreateUI</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// add button, colorChanger</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">button</span><span class="p">.</span><span class="n">RegisterCallback</span><span class="o">&lt;</span><span class="n">ClickEvent</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">OnClick</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">colorChanger</span><span class="p">.</span><span class="n">RegisterCallback</span><span class="o">&lt;</span><span class="n">TransitionRunEvent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OnTransitionRun</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">colorChanger</span><span class="p">.</span><span class="n">RegisterCallback</span><span class="o">&lt;</span><span class="n">TransitionStartEvent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OnTransitionStart</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">colorChanger</span><span class="p">.</span><span class="n">RegisterCallback</span><span class="o">&lt;</span><span class="n">TransitionEndEvent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OnTransitionEnd</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">colorChanger</span><span class="p">.</span><span class="n">RegisterCallback</span><span class="o">&lt;</span><span class="n">TransitionCancelEvent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">OnTransitionCancel</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">OnClick</span><span class="p">(</span><span class="n">ClickEvent</span><span class="w"> </span><span class="n">evt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">colorChanger</span><span class="p">.</span><span class="n">ToggleInClassList</span><span class="p">(</span><span class="n">ColorChangerTransitionClass</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnTransitionRun</span><span class="p">(</span><span class="n">TransitionRunEvent</span><span class="w"> </span><span class="n">evt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">DisplayLatestEvent</span><span class="p">(</span><span class="s">&quot;TransitionRunEvent&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnTransitionStart</span><span class="p">(</span><span class="n">TransitionStartEvent</span><span class="w"> </span><span class="n">evt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">DisplayLatestEvent</span><span class="p">(</span><span class="s">&quot;TransitionStartEvent&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnTransitionEnd</span><span class="p">(</span><span class="n">TransitionEndEvent</span><span class="w"> </span><span class="n">evt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">DisplayLatestEvent</span><span class="p">(</span><span class="s">&quot;TransitionEndEvent&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnTransitionCancel</span><span class="p">(</span><span class="n">TransitionCancelEvent</span><span class="w"> </span><span class="n">evt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">DisplayLatestEvent</span><span class="p">(</span><span class="s">&quot;TransitionCancelEvent&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DisplayLatestEvent</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">eventType</span><span class="p">,</span><span class="w"> </span><span class="n">DateTime</span><span class="w"> </span><span class="n">timestamp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// If two events are sent too close together, add both to the Latest event line.</span>
+<span class="w">    </span><span class="c1">// This happens if the delay is set to 0 and the TransitionRun and TransitionStart are sent at the same time, or if the button was pressed before the transition was over, thus sending TransitionCancel and TransitionRun (and potentially TransitionStart) events close together.</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">elapsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timestamp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">lastEvent</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elapsed</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">NearlyInstantaneousThreshold</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">timeLabel</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeBelowThresholdText</span><span class="p">;</span>
+<span class="w">      </span><span class="n">eventLabel</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">eventType</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">timeLabel</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;{elapsed:s\\.ff} s&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="n">eventLabel</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eventType</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">lastEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timestamp</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="visualelementschedule"><a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/UIElements.IVisualElementScheduler.html">VisualElement.schedule</a><a class="headerlink" href="#visualelementschedule" title="Permanent link">&para;</a></h4>
+<ul>
+<li>element에 대해 원하는 기능을 실행할 수 있다   </li>
+<li>일정한 interval로 style을 변경할 수도 있고, delay를 추가해서 실행할 수 있다, 실행 도중 멈출수도 있다 <br />
+  이미지 변경 예시 코드 <br />
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LogoAnimateExample</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">currentFrame</span><span class="p">;</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="w"> </span><span class="n">frames</span><span class="p">;</span>
+<span class="w">    </span><span class="n">VisualElement</span><span class="w"> </span><span class="n">logo</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Animate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">titleLogo</span><span class="o">?.</span><span class="n">schedule</span><span class="p">.</span><span class="n">Execute</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">frames</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">         </span><span class="k">return</span><span class="p">;</span>
+<span class="w">         </span><span class="k">this</span><span class="p">.</span><span class="n">currentFrame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">currentFrame</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">frames</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+<span class="w">         </span><span class="kt">var</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">frames</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="n">currentFrame</span><span class="p">];</span>
+<span class="w">                 </span><span class="k">this</span><span class="p">.</span><span class="n">logo</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">backgroundImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frame</span><span class="p">;</span>
+<span class="w">     </span><span class="p">}).</span><span class="n">Every</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
 <h4 id="button">button<a class="headerlink" href="#button" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/UIElements.CallbackEventHandler.RegisterCallback.html">CallbackEventHandler.RegisterCallback\<ClickEvent></a>를 사용해서 button click을 사용할 수 있다   </li>
-<li>RegisterCallback\<PointerDown>을 사용하려면 <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/UIElements.TrickleDown.html">UIElements.TrickleDown.TrickleDown</a>을 두번째 argument로 전달해야 동작한다   </li>
-<li>TricleDown을 사용하면 기본값으로 설정된 BubbleUp phase가 아니라 TrickleDown phase에 callback이 실행된다   </li>
+<li><a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/UIElements.CallbackEventHandler.RegisterCallback.html">CallbackEventHandler.RegisterCallback\&lt;ClickEvent&gt;</a>를 사용해서 button click을 사용할 수 있다   </li>
+<li>RegisterCallback\&lt;PointerDown&gt;을 사용하려면 <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/UIElements.TrickleDown.html">UIElements.TrickleDown.TrickleDown</a>을 두번째 argument로 전달해야 동작한다   </li>
+<li>TrickleDown을 사용하면 기본값으로 설정된 BubbleUp-phase가 아니라 TrickleDown-phase에 callback이 실행된다   </li>
 </ul>
+<blockquote>
+<p><strong>읽어 볼 내용</strong>
+- <a href="https://www.whatupgames.com/blog/create-a-runtime-inventory-ui-with-ui-toolkit">Inventory tutorial with UI Toolkit</a> <br />
+- <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/UIElements.ListView.html">List view</a>   </p>
+</blockquote>
 
 
 
@@ -1589,7 +1734,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 23, 2025 15:13:37">April 23, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 23:57:02">April 24, 2025</span>
   </span>
 
     
