@@ -1457,6 +1457,66 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="ScriptableObject의 사용">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-with-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum with data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delegate-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delegate pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      읽어 볼 내용
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1521,6 +1581,66 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="ScriptableObject의 사용">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-with-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enum with data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delegate-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delegate pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      읽어 볼 내용
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1558,32 +1678,39 @@
 <li>프로그램을 빌드 하기 전에는 runtime에도 수정이 가능하지만 빌드 후에는 data 영역으로 들어가기 때문에 수정이 불가능하다   </li>
 <li>event function은 Awake, OnEnable, OnDisable, OnValidate, OnDestroy, Reset등을 사용할 수 있지만 runtime에 하나의 instance만이 존재하기 때문에 MonoBehaviour 방식과는 다르게 실행된다   </li>
 </ul>
-<h4 id="scriptableobject">ScriptableObject의 사용<a class="headerlink" href="#scriptableobject" title="Permanent link">&para;</a></h4>
-<ol>
-<li>Data container   <ul>
+<h3 id="scriptableobject">ScriptableObject의 사용<a class="headerlink" href="#scriptableobject" title="Permanent link">&para;</a></h3>
+<h4 id="data-container">Data container<a class="headerlink" href="#data-container" title="Permanent link">&para;</a></h4>
+<ul>
 <li>GameObject 마다 저장되는것이 아닌 shared data 특히 runtime에 변경되지 않는 것을 저장하는 것에 잘 맞는다   </li>
 <li>runtime에 변경되는 데이터를 저장하기 위해서는 event를 활용해 값을 적절히 초기화 시키거나 검증하는 코드가 필요하다   </li>
 <li>ScriptableObject의 내용을 Json등을 이용해 따로 저장하면 게임의 데이터를 쉽게 공유, 저장할 수 있다, JsonUtility를 사용해 쉽게 ScriptableObject로 만들 수 있다   </li>
 <li>값이 변경될 때 event를 이용해 publish 하면 각각의 GameObject 마다 subscribe 할 필요가 없어서 더 간결하다   </li>
 </ul>
-</li>
-<li>Enum with data   </li>
-<li>C#의 enum은 data를 추가로 가질 수 없기 때문에 scriptable object를 data와 function이 있는 enum으로 사용할 수 있다   </li>
-<li>scriptable object는 하나의 instance만 생성되기 때문에 reference type과 다르게 enum과 같은 비교가 가능하다   <ul>
+<h4 id="enum-with-data">Enum with data<a class="headerlink" href="#enum-with-data" title="Permanent link">&para;</a></h4>
+<ul>
+<li>C#의 enum은 data를 추가로 가질 수 없기 때문에 scriptable object를 data와 function이 있는 enum으로 사용할 수 있다</li>
+<li>scriptable object는 하나의 instance만 생성되기 때문에 reference type과 다르게 enum과 같은 비교가 가능하다   </li>
 <li>scriptable object는 enum과 같이 내부적으로 int로 처리되지 않기 때문에 index로 사용하거나 값의 크기를 비교할 수는 없다   </li>
 </ul>
-</li>
-<li>Delegate pattern   </li>
-<li>특정 AI나 각각의 GameObject 마다 다른 행동을 실행하기 위해서 delegate로서 여러 scriptable object 중에 선택해서 사용할 수 있다   <ul>
+<h4 id="delegate-pattern">Delegate pattern<a class="headerlink" href="#delegate-pattern" title="Permanent link">&para;</a></h4>
+<ul>
+<li>특정 AI나 각각의 GameObject 마다 다른 행동을 실행하기 위해서 delegate로서 여러 scriptable object 중에 선택해서 사용할 수 있다   </li>
 <li>기능을 실행하기 위해서 scriptable object를 runtime에 수정해야 한다면 기존 scriptable object를 토대로 runtime에만 사용할 object를 만드는 것이 좋다   </li>
 <li>delegate pattern으로 사용할 때는 abstract class로 상위의 scriptable object를 만들어 주는 것이 좋다   </li>
 <li>MonoBehaviour를 수정하지 않고도 새로운 Scriptable object를 만들어서 기능을 확장하기 때문에 유지보수에 좋다   </li>
 </ul>
-</li>
-<li>Observer   </li>
+<h4 id="observer">Observer<a class="headerlink" href="#observer" title="Permanent link">&para;</a></h4>
+<ul>
 <li>Singleton을 사용하면 unit test를 하기 어렵지만 Scriptable Object를 사용하면 가능하다   </li>
 <li>작은 project나 prototype에서는 singleton이 유용하지만 크기가 커질수록 유지하기 어렵다   </li>
-</ol>
+</ul>
+<h4 id="command-pattern">Command pattern<a class="headerlink" href="#command-pattern" title="Permanent link">&para;</a></h4>
+<ul>
+<li>순차적으로 실행하는 기능이 필요한 경우 Scriptable object를 하나의 명령으로 만들어서 queue, stack 등으로 관리한다   </li>
+</ul>
+<h4 id="_1">읽어 볼 내용<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<p><a href="https://www.youtube.com/watch?v=cHUXh5biQMg">Pluggable AI with Scriptable object</a> <br />
+<a href="https://bronsonzgeb.com/index.php/2021/09/25/the-command-pattern-with-scriptable-objects/">Command pattern, Scriptable object</a>   </p>
 
 
 
@@ -1606,7 +1733,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 9, 2025 04:11:44 UTC">June 9, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 9, 2025 06:09:38 UTC">June 9, 2025</span>
   </span>
 
     
